@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:triptrek/screens/main_navigation.dart';
 import 'dart:async';
+
 
 class StartScreen extends StatefulWidget {
   const StartScreen({Key? key}) : super(key: key);
@@ -27,14 +29,14 @@ class _StartScreenState extends State<StartScreen>
     },
     {
       'bgImage': 'assets/images/start-2.jpg',
-      'title': 'Discover Ancient\nWonders',
+      'title': 'Visit tourist \nattractions',
       'description':
           'Explore magnificent temples and historical sites that tell the story of Cambodia\'s rich heritage',
       'iconImage': 'assets/images/TRIPTREK.png',
     },
     {
       'bgImage': 'assets/images/start-3.jpg',
-      'title': 'Experience Local\nCulture',
+      'title': 'Get ready and \nstarted now',
       'description':
           'Immerse yourself in authentic Cambodian culture, food, and traditions that will create lasting memories',
       'iconImage': 'assets/images/TRIPTREK.png',
@@ -86,10 +88,11 @@ class _StartScreenState extends State<StartScreen>
     super.dispose();
   }
 
-  void _onNextPressed() {
-    // Navigate to next screen
-    print('Navigate to next screen');
-  }
+ void _onNextPressed() {
+  Navigator.of(context).pushReplacement(
+    MaterialPageRoute(builder: (context) => const MainNavigationScreen()),
+  );
+}
 
   @override
   Widget build(BuildContext context) {
