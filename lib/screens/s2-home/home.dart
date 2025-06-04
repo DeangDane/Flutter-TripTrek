@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:triptrek/screens/s2-home/notification.dart';
 import '/data/mock_data.dart';
 import '/widgets/showcase.dart';
 import '/widgets/event_card.dart';
@@ -35,14 +36,23 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
                 Row(
-                  children: const [
-                    Icon(
-                      Icons.notifications_none,
-                      color: Colors.black54,
-                      size: 22,
+                  children: [
+                    IconButton(
+                      icon: const Icon(
+                        Icons.notifications_none,
+                        color: Color(0xFF4ECDC4),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => const NotificationScreen(),
+                          ),
+                        );
+                      },
                     ),
-                    SizedBox(width: 10),
-                    CircleAvatar(
+                    const SizedBox(width: 10),
+                    const CircleAvatar(
                       radius: 18,
                       backgroundColor: Color(0xFF4ECDC4),
                     ),
