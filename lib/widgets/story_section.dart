@@ -6,7 +6,7 @@ class StorySection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final users = List.generate(
-      5,
+      8,
       (i) => 'https://randomuser.me/api/portraits/women/$i.jpg',
     );
 
