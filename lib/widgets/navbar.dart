@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
   final int currentIndex;
@@ -19,7 +18,7 @@ class CustomBottomNavBar extends StatelessWidget {
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.1),
+            color: Colors.black.withOpacity(0.05),
             blurRadius: 10,
             offset: Offset(0, -2),
           ),
@@ -28,22 +27,10 @@ class CustomBottomNavBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          _buildNavItem(index: 0, icon: CupertinoIcons.home, label: 'Home'),
-          _buildNavItem(
-            index: 1,
-            icon: CupertinoIcons.paperplane,
-            label: 'Journal',
-          ),
-          _buildNavItem(
-            index: 2,
-            icon: CupertinoIcons.money_dollar_circle,
-            label: 'Budget',
-          ),
-          _buildNavItem(
-            index: 3,
-            icon: CupertinoIcons.person,
-            label: 'Profile',
-          ),
+          _buildNavItem(index: 0, icon: Icons.home_outlined, label: 'Home'),
+          _buildNavItem(index: 1, icon: Icons.explore_outlined, label: 'Journal'),
+          _buildNavItem(index: 2, icon: Icons.attach_money, label: 'Budget'),
+          _buildNavItem(index: 3, icon: Icons.person_outline, label: 'Profile'),
         ],
       ),
     );
