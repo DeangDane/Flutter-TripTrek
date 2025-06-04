@@ -3,7 +3,7 @@ import 'package:triptrek/screens/start.dart';
 // Import your StartScreen
 
 class LoadingScreen extends StatefulWidget {
-  const LoadingScreen({Key? key}) : super(key: key);
+  const LoadingScreen({super.key});
 
   @override
   State<LoadingScreen> createState() => _LoadingScreenState();
