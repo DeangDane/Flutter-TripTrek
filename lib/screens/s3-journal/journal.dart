@@ -6,9 +6,6 @@ import 'package:triptrek/widgets/journal_post.dart';
 import 'package:triptrek/widgets/story_section.dart';
 import 'createpost.dart';
 
-class JournalScreen extends StatelessWidget {
-  const JournalScreen({super.key});
-  
 class JournalScreen extends StatefulWidget {
   const JournalScreen({super.key});
 
