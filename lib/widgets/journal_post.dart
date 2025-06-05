@@ -1,14 +1,19 @@
-// journal_post.dart (final version using Image.asset)
+// journal_post.dart (updated with edit/delete options)
 import 'package:flutter/material.dart';
+import '../screens/s3-journal/createpost.dart';
 
 class JournalPost extends StatefulWidget {
   final Map<String, dynamic> data;
   final VoidCallback onCommentTap;
+  final Function(Map<String, dynamic>) onEdit;
+  final VoidCallback onDelete;
 
   const JournalPost({
     super.key,
     required this.data,
     required this.onCommentTap,
+    required this.onEdit,
+    required this.onDelete,
   });
 
   @override
@@ -18,6 +23,41 @@ class JournalPost extends StatefulWidget {
 class _JournalPostState extends State<JournalPost> {
   int currentImage = 0;
   bool isLiked = false;
+
+  void _showOptions() {
+    showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+      ),
+      builder: (_) => Wrap(
+        children: [
+          ListTile(
+            leading: const Icon(Icons.edit),
+            title: const Text('Edit Post'),
+            onTap: () async {
+              Navigator.pop(context);
+              final updatedPost = await Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => CreatePost(existingData: widget.data),
+                ),
+              );
+              if (updatedPost != null) widget.onEdit(updatedPost);
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.delete),
+            title: const Text('Delete Post'),
+            onTap: () {
+              Navigator.pop(context);
+              widget.onDelete();
+            },
+          ),
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +78,10 @@ class _JournalPostState extends State<JournalPost> {
             style: const TextStyle(fontWeight: FontWeight.bold),
           ),
           subtitle: Text(widget.data['location'] ?? ''),
-          trailing: const Icon(Icons.more_horiz),
+          trailing: IconButton(
+            icon: const Icon(Icons.more_horiz),
+            onPressed: _showOptions,
+          ),
         ),
         SizedBox(
           height: 300,
@@ -62,8 +105,7 @@ class _JournalPostState extends State<JournalPost> {
                 top: 12,
                 right: 12,
                 child: Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   decoration: BoxDecoration(
                     color: Colors.black54,
                     borderRadius: BorderRadius.circular(16),
