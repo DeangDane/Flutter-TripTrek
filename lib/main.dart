@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:triptrek/screens/loading.dart';
-
 void main() {
   runApp(const MyApp());
 }
@@ -19,6 +18,7 @@ class MyApp extends StatelessWidget {
       ),
       home: const LoadingScreen(),
       debugShowCheckedModeBanner: false,
+      
     );
   }
 }
