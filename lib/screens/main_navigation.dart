@@ -5,7 +5,6 @@ import 'package:triptrek/screens/s4-budget/budgets.dart';
 import 'package:triptrek/screens/s5-profile/profile.dart';
 import 'package:triptrek/widgets/navbar.dart';
 
-
 class MainNavigationScreen extends StatefulWidget {
   const MainNavigationScreen({super.key});
 
@@ -15,12 +14,12 @@ class MainNavigationScreen extends StatefulWidget {
 
 class _MainNavigationScreenState extends State<MainNavigationScreen> {
   int _currentIndex = 0;
-  
+
   final List<Widget> _screens = [
     const HomeScreen(),
     const JournalScreen(),
     const BudgetScreen(),
-    const ProfileScreen(),
+    const JournalProfileScreen(), // ✅ Use this, since it's defined in profile.dart
   ];
 
   @override
