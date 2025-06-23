@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../widgets/place_card.dart';
 import '../../widgets/navbar.dart';
-import 'place_detail.dart'; // <-- for navigating to detail
+import 'place_detail.dart';
 import 'saved_screen.dart';
 
 class BudgetResultScreen extends StatelessWidget {
@@ -20,8 +20,7 @@ class BudgetResultScreen extends StatelessWidget {
       {
         'title': 'Angkor Wat',
         'image': 'assets/images/r1.jpg',
-        'desc':
-            'That is the most popular place we\'re highly recommend to your for visit it, enjoy and be chill with your love here.',
+        'desc': 'That is the most popular place we\'re highly recommend to your for visit it, enjoy and be chill with your love here.',
         'rating': 5.0,
         'location': 'Siem Reap',
         'price': 150.0
@@ -29,8 +28,7 @@ class BudgetResultScreen extends StatelessWidget {
       {
         'title': 'Preah Vihea',
         'image': 'assets/images/r2.jpg',
-        'desc':
-            'That is the most popular place we\'re highly recommend to your for visit it, enjoy and be chill with your love here.',
+        'desc': 'That is the most popular place we\'re highly recommend to your for visit it, enjoy and be chill with your love here.',
         'rating': 4.5,
         'location': 'Preah Vihear',
         'price': 100.0
@@ -38,8 +36,7 @@ class BudgetResultScreen extends StatelessWidget {
       {
         'title': 'Angkor Wat',
         'image': 'assets/images/r1.jpg',
-        'desc':
-            'That is the most popular place we\'re highly recommend to your for visit it, enjoy and be chill with your love here.',
+        'desc': 'That is the most popular place we\'re highly recommend to your for visit it, enjoy and be chill with your love here.',
         'rating': 5.0,
         'location': 'Siem Reap',
         'price': 150.0
@@ -47,6 +44,7 @@ class BudgetResultScreen extends StatelessWidget {
     ];
 
     return Scaffold(
+      backgroundColor: Colors.white, // ✅ Whole screen background white
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
@@ -70,82 +68,82 @@ class BudgetResultScreen extends StatelessWidget {
             },
           ),
         ],
-
       ),
       body: SafeArea(
-        child: ListView(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-          children: [
-            const Text(
-              'Result',
-              style: TextStyle(
-                color: Color(0xFF4ECDC4),
-                fontSize: 14,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            const SizedBox(height: 12),
-            ...places.map((place) {
-              return GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => PlaceDetailScreen(
-                        title: place['title'],
-                        imageUrl: place['image'],
-                        description: place['desc'],
-                        location: place['location'],
-                        price: place['price'],
-                        rating: place['rating'],
-                      ),
-                    ),
-                  );
-                },
-                child: Stack(
-                  children: [
-                    PlaceCard(
-                      imageUrl: place['image'],
-                      title: place['title'],
-                      description: place['desc'],
-                      rating: (place['rating'] as num).toDouble(),
-                    ),
-                    const Positioned(
-                      top: 12,
-                      right: 12,
-                      child: Icon(
-                        Icons.bookmark_outline,
-                        color: Color(0xFF4ECDC4),
-                      ),
-                    ),
-                  ],
+        child: Container(
+          color: Colors.white, // ✅ White result background
+          child: ListView(
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+            children: [
+              const Text(
+                'Result',
+                style: TextStyle(
+                  color: Color(0xFF4ECDC4),
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
                 ),
-              );
-            }).toList(),
-            const SizedBox(height: 12),
-            Align(
-              alignment: Alignment.center,
-              child: TextButton(
-                onPressed: () {},
-                child: const Text(
-                  'see more>>',
-                  style: TextStyle(
-                    color: Color(0xFF4ECDC4),
-                    fontSize: 13,
+              ),
+              const SizedBox(height: 12),
+              ...places.map((place) {
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PlaceDetailScreen(
+                          title: place['title'],
+                          imageUrl: place['image'],
+                          description: place['desc'],
+                          location: place['location'],
+                          price: place['price'],
+                          rating: place['rating'],
+                        ),
+                      ),
+                    );
+                  },
+                  child: Stack(
+                    children: [
+                      PlaceCard(
+                        imageUrl: place['image'],
+                        title: place['title'],
+                        description: place['desc'],
+                        rating: (place['rating'] as num).toDouble(),
+                      ),
+                      const Positioned(
+                        top: 12,
+                        right: 12,
+                        child: Icon(
+                          Icons.bookmark_outline,
+                          color: Color(0xFF4ECDC4),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              }).toList(),
+              const SizedBox(height: 12),
+              Align(
+                alignment: Alignment.center,
+                child: TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    'see more>>',
+                    style: TextStyle(
+                      color: Color(0xFF4ECDC4),
+                      fontSize: 13,
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
-      bottomNavigationBar: SafeArea(
-        child: CustomBottomNavBar(
-          currentIndex: 2,
-          onTap: (index) {
-            // Handle navbar tab change
-          },
-        ),
+      bottomNavigationBar: CustomBottomNavBar(
+        currentIndex: 2,
+        onTap: (index) {
+          // Handle tab change
+        },
       ),
     );
   }

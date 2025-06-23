@@ -21,8 +21,8 @@ class SavedScreen extends StatelessWidget {
         'rating': 4.5,
       },
       {
-        'title': 'Angkor Wat',
-        'image': 'assets/images/r1.jpg',
+        'title': 'Bayon Temple',
+        'image': 'assets/images/journal3.png',
         'desc':
             'That is the most popular place we\'re highly recommend to your for visit it, enjoy and be chill with your love here.',
         'rating': 5.0,
