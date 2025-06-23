@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:triptrek/screens/s2-home/notification.dart';
+import 'package:triptrek/screens/s2-home/explore.dart';
 import '/data/mock_data.dart';
 import '/widgets/showcase.dart';
 import '/widgets/event_card.dart';
@@ -110,7 +111,16 @@ class HomeScreen extends StatelessWidget {
             ),
 
             const SizedBox(height: 20),
-            const Showcase(images: destinations),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const ExploreScreen()),
+                );
+              },
+              child: const Showcase(images: destinations),
+            ),
+
             const SizedBox(height: 20),
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 10),
@@ -122,7 +132,17 @@ class HomeScreen extends StatelessWidget {
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
                   ),
                   const SizedBox(height: 12),
-                  ProvinceList(provinces: provinces),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const ExploreScreen(),
+                        ),
+                      );
+                    },
+                    child: ProvinceList(provinces: provinces),
+                  ),
                 ],
               ),
             ),
@@ -165,13 +185,21 @@ class HomeScreen extends StatelessWidget {
               margin: const EdgeInsets.symmetric(horizontal: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text(
+                children: [
+                  const Text(
                     'Most visited provinces',
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
                   ),
-                  SizedBox(height: 20),
-                  TopProvinces(images: topProvinces),
+                  const SizedBox(height: 20),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => ExploreScreen()),
+                      );
+                    },
+                    child: TopProvinces(images: topProvinces),
+                  ),
                 ],
               ),
             ),

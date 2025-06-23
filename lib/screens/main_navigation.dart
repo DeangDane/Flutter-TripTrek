@@ -5,7 +5,6 @@ import 'package:triptrek/screens/s4-budget/budgets.dart';
 import 'package:triptrek/screens/s5-profile/profile.dart';
 import 'package:triptrek/widgets/navbar.dart';
 
-
 class MainNavigationScreen extends StatefulWidget {
   const MainNavigationScreen({super.key});
 
@@ -15,7 +14,7 @@ class MainNavigationScreen extends StatefulWidget {
 
 class _MainNavigationScreenState extends State<MainNavigationScreen> {
   int _currentIndex = 0;
-  
+
   final List<Widget> _screens = [
     const HomeScreen(),
     const JournalScreen(),
@@ -26,14 +25,17 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _screens[_currentIndex],
-      bottomNavigationBar: CustomBottomNavBar(
-        currentIndex: _currentIndex,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
+      body: SafeArea(child: _screens[_currentIndex]),
+      bottomNavigationBar: SafeArea(
+        // This avoids overlap with system UI
+        child: CustomBottomNavBar(
+          currentIndex: _currentIndex,
+          onTap: (index) {
+            setState(() {
+              _currentIndex = index;
+            });
+          },
+        ),
       ),
     );
   }

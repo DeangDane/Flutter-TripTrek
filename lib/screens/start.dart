@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:triptrek/screens/main_navigation.dart';
 import 'dart:async';
 
+import 'package:triptrek/screens/s1-auth/login.dart';
 
 class StartScreen extends StatefulWidget {
   const StartScreen({super.key});
@@ -88,11 +89,11 @@ class _StartScreenState extends State<StartScreen>
     super.dispose();
   }
 
- void _onNextPressed() {
-  Navigator.of(context).pushReplacement(
-    MaterialPageRoute(builder: (context) => const MainNavigationScreen()),
-  );
-}
+  void _onNextPressed() {
+    Navigator.of(
+      context,
+    ).pushReplacement(MaterialPageRoute(builder: (context) => LoginScreen()));
+  }
 
   @override
   Widget build(BuildContext context) {
