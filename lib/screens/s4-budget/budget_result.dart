@@ -20,31 +20,34 @@ class BudgetResultScreen extends StatelessWidget {
       {
         'title': 'Angkor Wat',
         'image': 'assets/images/r1.jpg',
-        'desc': 'That is the most popular place we\'re highly recommend to your for visit it, enjoy and be chill with your love here.',
+        'desc':
+            'That is the most popular place we\'re highly recommend to your for visit it, enjoy and be chill with your love here.',
         'rating': 5.0,
         'location': 'Siem Reap',
-        'price': 150.0
+        'price': 150.0,
       },
       {
         'title': 'Preah Vihea',
         'image': 'assets/images/r2.jpg',
-        'desc': 'That is the most popular place we\'re highly recommend to your for visit it, enjoy and be chill with your love here.',
+        'desc':
+            'That is the most popular place we\'re highly recommend to your for visit it, enjoy and be chill with your love here.',
         'rating': 4.5,
         'location': 'Preah Vihear',
-        'price': 100.0
+        'price': 100.0,
       },
       {
         'title': 'Angkor Wat',
         'image': 'assets/images/r1.jpg',
-        'desc': 'That is the most popular place we\'re highly recommend to your for visit it, enjoy and be chill with your love here.',
+        'desc':
+            'That is the most popular place we\'re highly recommend to your for visit it, enjoy and be chill with your love here.',
         'rating': 5.0,
         'location': 'Siem Reap',
-        'price': 150.0
+        'price': 150.0,
       },
     ];
 
     return Scaffold(
-      backgroundColor: Colors.white, // ✅ Whole screen background white
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
@@ -71,7 +74,7 @@ class BudgetResultScreen extends StatelessWidget {
       ),
       body: SafeArea(
         child: Container(
-          color: Colors.white, // ✅ White result background
+          color: Colors.white,
           child: ListView(
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
             children: [
@@ -90,14 +93,15 @@ class BudgetResultScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => PlaceDetailScreen(
-                          title: place['title'],
-                          imageUrl: place['image'],
-                          description: place['desc'],
-                          location: place['location'],
-                          price: place['price'],
-                          rating: place['rating'],
-                        ),
+                        builder:
+                            (context) => PlaceDetailScreen(
+                              title: place['title'],
+                              imageUrl: place['image'],
+                              description: place['desc'],
+                              location: place['location'],
+                              price: place['price'],
+                              rating: place['rating'],
+                            ),
                       ),
                     );
                   },
@@ -128,22 +132,13 @@ class BudgetResultScreen extends StatelessWidget {
                   onPressed: () {},
                   child: const Text(
                     'see more>>',
-                    style: TextStyle(
-                      color: Color(0xFF4ECDC4),
-                      fontSize: 13,
-                    ),
+                    style: TextStyle(color: Color(0xFF4ECDC4), fontSize: 13),
                   ),
                 ),
               ),
             ],
           ),
         ),
-      ),
-      bottomNavigationBar: CustomBottomNavBar(
-        currentIndex: 2,
-        onTap: (index) {
-          // Handle tab change
-        },
       ),
     );
   }
