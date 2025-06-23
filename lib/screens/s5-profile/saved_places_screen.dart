@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:triptrek/widgets/w5-profile/story_model.dart';
+import 'package:triptrek/widgets/story_model.dart';
 
 class SavedPlacesScreen extends StatefulWidget {
   const SavedPlacesScreen({super.key});
