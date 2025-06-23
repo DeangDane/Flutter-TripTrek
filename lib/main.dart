@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:triptrek/screens/loading.dart';
+// import 'package:triptrek/screens/s2-home/Booking.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -17,8 +19,9 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: const LoadingScreen(),
+      // home: const BookingScreen(),
+
       debugShowCheckedModeBanner: false,
-      
     );
   }
 }
