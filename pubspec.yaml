@@ -64,8 +64,6 @@ flutter:
   assets:
     - assets/images/
     - assets/images/folder.png
-    - assets/images/qr.png
-
     # - images/journal1.png
   #   - images/a_dot_ham.jpeg
 
