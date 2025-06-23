@@ -34,7 +34,7 @@ const notificationsToday = [
   {
     'type': 'like_comment',
     'category': 'journal',
-    'avatar': 'https://randomuser.me/api/portraits/women/44.jpg',
+    'avatar': 'assets/images/avater-1.png',
     'username': 'karennne',
     'action': 'liked',
     'target': "martini_rond's comment",
@@ -44,7 +44,7 @@ const notificationsToday = [
   {
     'type': 'like_photo',
     'category': 'journal',
-    'avatar': 'https://randomuser.me/api/portraits/men/1.jpg',
+    'avatar': 'assets/images/avater-2.png',
     'users': ['kiero_d', 'zackjohn', 'craig_love'],
     'action': 'liked',
     'target': 'joshua_l',
@@ -66,4 +66,24 @@ const notificationsMonth = [
     'icon': Icons.settings,
     'text': 'Restaurant have promotion on Khmer New Year',
   },
+];
+
+const profileData = {
+  'name': 'Mina',
+  'username': 'Mina_Official',
+  'bio': "I'm a dancer and singer in Cambodia. I love travelling:)",
+  'avatar': 'assets/images/avater-1.png',
+  'posts': 54,
+};
+
+const highlights = [
+  {'label': 'New', 'icon': true},
+  {'label': 'Sea', 'img': 'assets/images/sea.jpg'},
+];
+
+final List<Map<String, Object>> mockProfilePosts = [
+  {'img': 'assets/images/.jpg', 'label': 'Sunset View'},
+  {'img': 'assets/images/post2.jpg', 'label': 'River Walk'},
+  {'img': 'assets/images/post3.jpg', 'label': 'City Lights'},
+  // Add more...
 ];

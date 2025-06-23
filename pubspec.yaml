@@ -36,6 +36,8 @@ dependencies:
   cupertino_icons: ^1.0.8
   image_picker: ^0.8.7+3
   shared_preferences: ^2.5.3
+  intl: ^0.18.1 
+  font_awesome_flutter: ^10.8.0
 
 dev_dependencies:
   flutter_test:
@@ -62,6 +64,8 @@ flutter:
   assets:
     - assets/images/
     - assets/images/folder.png
+    - assets/images/qr.png
+
     # - images/journal1.png
   #   - images/a_dot_ham.jpeg
 
