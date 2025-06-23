@@ -111,6 +111,7 @@ class _JournalScreenState extends State<JournalScreen> {
       backgroundColor: const Color(0xFFF8F8F8),
       appBar: AppBar(
         backgroundColor: Colors.white,
+        automaticallyImplyLeading: false,
         elevation: 0,
         title: const Text(
           'Journal',
@@ -118,19 +119,16 @@ class _JournalScreenState extends State<JournalScreen> {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.notifications_none, color: Colors.teal),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (_) => const NotificationScreen()),
-              );
-            },
-          ),
-          IconButton(
             icon: const Icon(Icons.add_circle_outline, color: Colors.teal),
             onPressed: () => _navigateToCreatePost(),
           ),
-          const Icon(Icons.search, color: Colors.teal),
+          const SizedBox(width: 8), // Gap between the two icons
+          const Padding(
+            padding: EdgeInsets.only(
+              right: 12.0,
+            ), // Align with IconButton padding
+            child: Icon(Icons.search, color: Colors.teal),
+          ),
         ],
       ),
       body: ListView(

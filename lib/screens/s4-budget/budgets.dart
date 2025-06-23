@@ -13,11 +13,26 @@ class _BudgetScreenState extends State<BudgetScreen> {
   String selectedProvince = 'Phnom Penh';
   final TextEditingController amountController = TextEditingController();
   final List<String> provinces = [
-    'Phnom Penh', 'Siem Reap', 'Battambang', 'Kampot', 'Kandal',
-    'Takeo', 'Kampong Cham', 'Kampong Thom', 'Kampong Speu',
-    'Prey Veng', 'Pursat', 'Svay Rieng', 'Ratanakiri', 'Kratie',
-    'Stung Treng', 'Mondulkiri', 'Preah Vihear', 'Oudar Meanchey',
-    'Koh Kong', 'Sihanoukville',
+    'Phnom Penh',
+    'Siem Reap',
+    'Battambang',
+    'Kampot',
+    'Kandal',
+    'Takeo',
+    'Kampong Cham',
+    'Kampong Thom',
+    'Kampong Speu',
+    'Prey Veng',
+    'Pursat',
+    'Svay Rieng',
+    'Ratanakiri',
+    'Kratie',
+    'Stung Treng',
+    'Mondulkiri',
+    'Preah Vihear',
+    'Oudar Meanchey',
+    'Koh Kong',
+    'Sihanoukville',
   ];
 
   @override
@@ -27,12 +42,10 @@ class _BudgetScreenState extends State<BudgetScreen> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
+        automaticallyImplyLeading: false,
         title: const Text(
           'Budget',
-          style: TextStyle(
-            color: Color(0xFF4ECDC4),
-            fontWeight: FontWeight.bold,
-          ),
+          style: TextStyle(color: Colors.teal, fontFamily: 'Serif'),
         ),
         centerTitle: false,
         iconTheme: const IconThemeData(color: Color(0xFF4ECDC4)),
@@ -41,9 +54,9 @@ class _BudgetScreenState extends State<BudgetScreen> {
             icon: const Icon(Icons.bookmark_outline, color: Color(0xFF4ECDC4)),
             onPressed: () {
               print("Saved: \$${amountController.text} for $selectedProvince");
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text("Budget saved!")),
-              );
+              ScaffoldMessenger.of(
+                context,
+              ).showSnackBar(const SnackBar(content: Text("Budget saved!")));
             },
           ),
         ],
@@ -89,12 +102,13 @@ class _BudgetScreenState extends State<BudgetScreen> {
                   onChanged: (value) {
                     setState(() => selectedProvince = value!);
                   },
-                  items: provinces.map((province) {
-                    return DropdownMenuItem(
-                      value: province,
-                      child: Text(province),
-                    );
-                  }).toList(),
+                  items:
+                      provinces.map((province) {
+                        return DropdownMenuItem(
+                          value: province,
+                          child: Text(province),
+                        );
+                      }).toList(),
                 ),
               ),
             ),
@@ -129,28 +143,33 @@ class _BudgetScreenState extends State<BudgetScreen> {
                 ),
                 const SizedBox(width: 12),
                 ElevatedButton(
-                  onPressed: amountController.text.trim().isNotEmpty
-                      ? () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => BudgetResultScreen(
-                                province: selectedProvince,
-                                amount: amountController.text.trim(),
+                  onPressed:
+                      amountController.text.trim().isNotEmpty
+                          ? () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder:
+                                    (context) => BudgetResultScreen(
+                                      province: selectedProvince,
+                                      amount: amountController.text.trim(),
+                                    ),
                               ),
-                            ),
-                          );
-                        }
-                      : null,
+                            );
+                          }
+                          : null,
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 24, vertical: 14),
+                      horizontal: 24,
+                      vertical: 14,
+                    ),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    backgroundColor: amountController.text.trim().isNotEmpty
-                        ? const Color(0xFF4ECDC4)
-                        : Colors.grey.shade400,
+                    backgroundColor:
+                        amountController.text.trim().isNotEmpty
+                            ? const Color(0xFF4ECDC4)
+                            : Colors.grey.shade400,
                   ),
                   child: const Text(
                     'GO',
