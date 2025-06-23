@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:triptrek/screens/s2-home/notification.dart';
 import 'package:triptrek/widgets/journal_post.dart';
 import 'package:triptrek/widgets/story_section.dart';
 import 'createpost.dart';

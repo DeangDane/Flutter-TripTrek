@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:triptrek/screens/main_navigation.dart';
 import 'dart:async';
 
 import 'package:triptrek/screens/s1-auth/login.dart';

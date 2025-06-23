@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../widgets/place_card.dart';
-import '../../widgets/navbar.dart';
 import 'place_detail.dart';
 import 'saved_screen.dart';
 
