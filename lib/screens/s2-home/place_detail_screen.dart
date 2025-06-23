@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:triptrek/screens/s2-home/booking.dart';
 // import 'package:triptrek/widgets/feedback_modal.dart'; // ✅ Import your modal
 
 class PlaceDetailScreen extends StatelessWidget {
@@ -31,21 +32,28 @@ class PlaceDetailScreen extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Text(name, style: const TextStyle(fontWeight: FontWeight.bold)),
+                    Text(
+                      name,
+                      style: const TextStyle(fontWeight: FontWeight.bold),
+                    ),
                     const Spacer(),
                     Row(
                       children: List.generate(
-                          5,
-                          (index) => const Icon(
-                                Icons.star,
-                                size: 14,
-                                color: Colors.amber,
-                              )),
+                        5,
+                        (index) => const Icon(
+                          Icons.star,
+                          size: 14,
+                          color: Colors.amber,
+                        ),
+                      ),
                     ),
                     const SizedBox(width: 4),
                     Text('$rating', style: const TextStyle(fontSize: 12)),
                     const SizedBox(width: 10),
-                    Text(date, style: const TextStyle(fontSize: 12, color: Colors.grey)),
+                    Text(
+                      date,
+                      style: const TextStyle(fontSize: 12, color: Colors.grey),
+                    ),
                   ],
                 ),
                 const SizedBox(height: 8),
@@ -71,7 +79,10 @@ class PlaceDetailScreen extends StatelessWidget {
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
             ),
-            builder: (context) => const Center(child: Text('Feedback Modal Placeholder')), // TODO: Replace with actual FeedbackModal widget
+            builder:
+                (context) => const Center(
+                  child: Text('Feedback Modal Placeholder'),
+                ), // TODO: Replace with actual FeedbackModal widget
           );
         },
         child: const Icon(Icons.add, color: Colors.green),
@@ -118,15 +129,26 @@ class PlaceDetailScreen extends StatelessWidget {
                           style: TextStyle(fontSize: 12, color: Colors.black54),
                         ),
                         const SizedBox(height: 20),
-                        const Text('Price: 15.00\$',
-                            style: TextStyle(color: Colors.green)),
-                        const Text('Rating  4.5',
-                            style: TextStyle(color: Colors.teal)),
+                        const Text(
+                          'Price: 15.00\$',
+                          style: TextStyle(color: Colors.green),
+                        ),
+                        const Text(
+                          'Rating  4.5',
+                          style: TextStyle(color: Colors.teal),
+                        ),
                         const SizedBox(height: 12),
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const BookingScreen(),
+                              ),
+                            );
+                          },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.green,
+                            backgroundColor: const Color(0xFF52BD94),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30),
                             ),
@@ -139,7 +161,7 @@ class PlaceDetailScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
 
@@ -151,18 +173,34 @@ class PlaceDetailScreen extends StatelessWidget {
                 children: [
                   Expanded(
                     flex: 1,
-                    child: _roundedImage('assets/images/resort3.jpg', double.infinity, 180),
+                    child: _roundedImage(
+                      'assets/images/resort3.jpg',
+                      double.infinity,
+                      180,
+                    ),
                   ),
                   const SizedBox(width: 12),
                   Expanded(
                     flex: 1,
                     child: Column(
                       children: [
-                        _roundedImage('assets/images/resort4.jpg', double.infinity, 55),
+                        _roundedImage(
+                          'assets/images/resort4.jpg',
+                          double.infinity,
+                          55,
+                        ),
                         const SizedBox(height: 6),
-                        _roundedImage('assets/images/resort5.jpg', double.infinity, 55),
+                        _roundedImage(
+                          'assets/images/resort5.jpg',
+                          double.infinity,
+                          55,
+                        ),
                         const SizedBox(height: 6),
-                        _roundedImage('assets/images/resort6.jpg', double.infinity, 55),
+                        _roundedImage(
+                          'assets/images/resort6.jpg',
+                          double.infinity,
+                          55,
+                        ),
                       ],
                     ),
                   ),
@@ -174,9 +212,15 @@ class PlaceDetailScreen extends StatelessWidget {
               /// Tabs
               Row(
                 children: const [
-                  Text('Reviews', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                  Text(
+                    'Reviews',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  ),
                   SizedBox(width: 20),
-                  Text('Related', style: TextStyle(color: Colors.grey, fontSize: 16)),
+                  Text(
+                    'Related',
+                    style: TextStyle(color: Colors.grey, fontSize: 16),
+                  ),
                 ],
               ),
               const SizedBox(height: 20),
