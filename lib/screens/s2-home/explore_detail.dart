@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:triptrek/screens/s2-home/place_detail_screen.dart';
 
 class ExploreDetailsScreen extends StatelessWidget {
   const ExploreDetailsScreen({super.key});
@@ -241,7 +242,15 @@ class ExploreDetailsScreen extends StatelessWidget {
                                   ],
                                 ),
                                 ElevatedButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder:
+                                            (context) => PlaceDetailScreen(),
+                                      ),
+                                    );
+                                  },
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: const Color(0xFF23C882),
                                     padding: const EdgeInsets.symmetric(
