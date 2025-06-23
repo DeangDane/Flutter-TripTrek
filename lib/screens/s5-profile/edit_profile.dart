@@ -1,4 +1,3 @@
-// lib/screens/s5-profile/edit_profile.dart
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -29,12 +28,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   Future<void> _loadSavedData() async {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
-      nameController.text = prefs.getString('name') ?? '';
-      usernameController.text = prefs.getString('username') ?? '';
-      bioController.text = prefs.getString('bio') ?? '';
-      emailController.text = prefs.getString('email') ?? '';
-      phoneController.text = prefs.getString('phone') ?? '';
-      genderController.text = prefs.getString('gender') ?? '';
       final imagePath = prefs.getString('profile_image');
       if (imagePath != null) {
         _image = File(imagePath);
@@ -80,75 +73,172 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFFF8FC),
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
         leading: TextButton(
           onPressed: () => Navigator.pop(context),
-          child: const Text('Cancel', style: TextStyle(color: Colors.black)),
+          child: const Text(
+            'Cancel',
+            style: TextStyle(color: Colors.black, fontSize: 16),
+          ),
         ),
+        leadingWidth: 80,
         centerTitle: true,
         title: const Text(
           'Edit Profile',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
+          ),
         ),
         actions: [
           TextButton(
             onPressed: _saveProfile,
-            child: const Text('Done', style: TextStyle(color: Colors.green)),
+            child: const Text(
+              'Done',
+              style: TextStyle(
+                color: Color(0xFF00BCD4),
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
           ),
         ],
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CircleAvatar(
-              radius: 40,
-              backgroundColor: Colors.purpleAccent,
-              backgroundImage:
-                  _image != null
-                      ? FileImage(_image!)
-                      : const AssetImage('assets/images/mina.jpg')
-                          as ImageProvider,
-            ),
-            const SizedBox(height: 8),
-            TextButton(
-              onPressed: _pickImage,
-              child: const Text(
-                'Change Profile Photo',
-                style: TextStyle(color: Colors.cyan),
+            // Profile Photo Section
+            Center(
+              child: Column(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: const Color(0xFF00BCD4),
+                        width: 3,
+                      ),
+                    ),
+                    child: CircleAvatar(
+                      radius: 50,
+                      backgroundImage:
+                          _image != null
+                              ? FileImage(_image!)
+                              : const AssetImage('assets/images/p2.jpg')
+                                  as ImageProvider,
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  TextButton(
+                    onPressed: _pickImage,
+                    child: const Text(
+                      'Change Profile Photo',
+                      style: TextStyle(
+                        color: Color(0xFF00BCD4),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-            const SizedBox(height: 16),
-            _buildTextField('Name', nameController),
-            _buildTextField('Username', usernameController),
-            _buildTextField('Bio', bioController),
-            const SizedBox(height: 16),
-            const Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                'Private Information',
-                style: TextStyle(fontWeight: FontWeight.bold),
+            const SizedBox(height: 32),
+
+            // Basic Information
+            _buildTextField(
+              'Name',
+              nameController,
+              defaultValue: 'Mina_Official',
+            ),
+            const SizedBox(height: 20),
+            _buildTextField(
+              'Username',
+              usernameController,
+              defaultValue: 'Mina',
+            ),
+            const SizedBox(height: 20),
+            _buildTextField(
+              'Bio',
+              bioController,
+              maxLines: 3,
+              defaultValue:
+                  "I'm a dancer and singer in Cambodia. I love travelling:)",
+            ),
+            const SizedBox(height: 32),
+
+            // Private Information Section
+            const Text(
+              'Private Information',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
               ),
             ),
-            _buildTextField('Email', emailController),
-            _buildTextField('Phone', phoneController),
-            _buildTextField('Gender', genderController),
+            const SizedBox(height: 20),
+            _buildTextField(
+              'Email',
+              emailController,
+              defaultValue: 'mina_official@gmail.com',
+            ),
+            const SizedBox(height: 20),
+            _buildTextField(
+              'Phone',
+              phoneController,
+              defaultValue: '+855 098765411',
+            ),
+            const SizedBox(height: 20),
+            _buildTextField('Gender', genderController, defaultValue: 'Female'),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildTextField(String label, TextEditingController controller) {
+  Widget _buildTextField(
+    String label,
+    TextEditingController controller, {
+    int maxLines = 1,
+    String? defaultValue,
+  }) {
+    // Set the default value if controller is empty and defaultValue is provided
+    if (controller.text.isEmpty && defaultValue != null) {
+      controller.text = defaultValue;
+    }
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SizedBox(height: 10),
-        Text(label, style: const TextStyle(fontSize: 14)),
-        TextField(controller: controller),
+        Text(
+          label,
+          style: const TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+            color: Colors.black87,
+          ),
+        ),
+        const SizedBox(height: 8),
+        TextField(
+          controller: controller,
+          maxLines: maxLines,
+          style: const TextStyle(fontSize: 16),
+          decoration: const InputDecoration(
+            border: UnderlineInputBorder(
+              borderSide: BorderSide(color: Colors.grey),
+            ),
+            focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(color: Color(0xFF00BCD4)),
+            ),
+            contentPadding: EdgeInsets.symmetric(vertical: 8),
+          ),
+        ),
       ],
     );
   }
