@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 class EventCard extends StatelessWidget {
   final Map<String, String> event;
   const EventCard({super.key, required this.event});

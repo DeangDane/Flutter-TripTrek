@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:triptrek/screens/main_navigation.dart';
 import 'dart:async';
 
+import 'package:triptrek/screens/s1-auth/login.dart';
 
 class StartScreen extends StatefulWidget {
-  const StartScreen({Key? key}) : super(key: key);
+  const StartScreen({super.key});
 
   @override
   State<StartScreen> createState() => _StartScreenState();
@@ -12,7 +13,7 @@ class StartScreen extends StatefulWidget {
 
 class _StartScreenState extends State<StartScreen>
     with SingleTickerProviderStateMixin {
-  PageController _pageController = PageController();
+  final PageController _pageController = PageController();
   int _currentIndex = 0;
   Timer? _timer;
   late AnimationController _animationController;
@@ -88,11 +89,11 @@ class _StartScreenState extends State<StartScreen>
     super.dispose();
   }
 
- void _onNextPressed() {
-  Navigator.of(context).pushReplacement(
-    MaterialPageRoute(builder: (context) => const MainNavigationScreen()),
-  );
-}
+  void _onNextPressed() {
+    Navigator.of(
+      context,
+    ).pushReplacement(MaterialPageRoute(builder: (context) => LoginScreen()));
+  }
 
   @override
   Widget build(BuildContext context) {
