@@ -19,7 +19,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
     const HomeScreen(),
     const JournalScreen(),
     const BudgetScreen(),
-    const ProfileScreen(),
+    const JournalProfileScreen(), // ✅ Use this, since it's defined in profile.dart
   ];
 
   @override
