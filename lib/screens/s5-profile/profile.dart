@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:triptrek/data/mock_data.dart';
 import 'edit_profile.dart';
 import 'profile_menu.dart';
-
 
 class JournalProfileScreen extends StatefulWidget {
   const JournalProfileScreen({super.key});
@@ -15,6 +15,8 @@ class _JournalProfileScreenState extends State<JournalProfileScreen> {
   String name = '';
   String username = '';
   String bio = '';
+
+  get backgroundColor => null;
 
   @override
   void initState() {
@@ -66,7 +68,6 @@ class _JournalProfileScreenState extends State<JournalProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: AppBar(
         title: const Text('Mina', style: TextStyle(color: Colors.black)),
         backgroundColor: Colors.white,
@@ -85,7 +86,8 @@ class _JournalProfileScreenState extends State<JournalProfileScreen> {
           ),
         ],
       ),
-      body: Column(
+      backgroundColor: const Color(0xFFF7F9FA),
+      body: ListView(
         children: [
           const SizedBox(height: 16),
           const CircleAvatar(
@@ -109,15 +111,13 @@ class _JournalProfileScreenState extends State<JournalProfileScreen> {
           Text(username, style: const TextStyle(fontWeight: FontWeight.bold)),
           Text(bio),
           const SizedBox(height: 16),
-      backgroundColor: const Color(0xFFF7F9FA),
-      body: ListView(
-        children: [
           const SizedBox(height: 10),
           buildTopBar(),
           const SizedBox(height: 5),
-          const ph.ProfileHeader(),
-          const SizedBox(height: 5),
-          const pg.ProfileGrid(),
+          // Uncomment and import these widgets if needed
+          // const ph.ProfileHeader(),
+          // const SizedBox(height: 5),
+          // const pg.ProfileGrid(),
         ],
       ),
     );
