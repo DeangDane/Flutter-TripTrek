@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:triptrek/screens/s2-home/notification.dart';
 import 'package:triptrek/widgets/journal_post.dart';
 import 'package:triptrek/widgets/story_section.dart';
 import 'createpost.dart';
@@ -45,6 +44,7 @@ class _JournalScreenState extends State<JournalScreen> {
   @override
   void initState() {
     super.initState();
+    clearJournalPosts(); // <-- Add this line temporarily
     _loadPosts();
   }
 
@@ -55,6 +55,9 @@ class _JournalScreenState extends State<JournalScreen> {
       setState(
         () => posts = List<Map<String, dynamic>>.from(json.decode(stored)),
       );
+    } else {
+      // Save static posts as initial data
+      await prefs.setString('journalPosts', json.encode(posts));
     }
   }
 
@@ -93,7 +96,7 @@ class _JournalScreenState extends State<JournalScreen> {
         if (index != null) {
           posts[index] = result;
         } else {
-          posts.insert(0, result);
+          posts.insert(0, result); // Add new post at the top
         }
       });
       _savePosts();
@@ -103,6 +106,12 @@ class _JournalScreenState extends State<JournalScreen> {
   void _deletePost(int index) {
     setState(() => posts.removeAt(index));
     _savePosts();
+  }
+
+  /// Clears the journal posts from SharedPreferences.
+  Future<void> clearJournalPosts() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove('journalPosts');
   }
 
   @override
@@ -141,10 +150,10 @@ class _JournalScreenState extends State<JournalScreen> {
               data: post,
               onCommentTap: _showComments,
               onEdit:
-                  (updatedData) => _navigateToCreatePost(
-                    existingData: updatedData,
-                    index: index,
-                  ),
+                  (updatedData) => setState(() {
+                    posts[index] = updatedData;
+                    _savePosts();
+                  }),
               onDelete: () => _deletePost(index),
             );
           }),

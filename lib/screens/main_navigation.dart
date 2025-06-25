@@ -19,24 +19,23 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
     const HomeScreen(),
     const JournalScreen(),
     const BudgetScreen(),
-    const JournalProfileScreen(), // ✅ Use this, since it's defined in profile.dart
+    const JournalProfileScreen(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(child: _screens[_currentIndex]),
-      bottomNavigationBar: SafeArea(
-        // This avoids overlap with system UI
-        child: CustomBottomNavBar(
-          currentIndex: _currentIndex,
-          onTap: (index) {
-            setState(() {
-              _currentIndex = index;
-            });
-          },
-        ),
+      body: _screens[_currentIndex],
+      bottomNavigationBar: CustomBottomNavBar(
+        currentIndex: _currentIndex,
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
       ),
     );
   }
 }
+
+/* Remove this class definition if you have an actual ProfileScreen widget imported from 'package:triptrek/screens/s5-profile/profile.dart'; */

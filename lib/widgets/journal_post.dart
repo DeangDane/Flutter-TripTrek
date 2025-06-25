@@ -1,5 +1,6 @@
 // journal_post.dart (updated with edit/delete options)
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../screens/s3-journal/createpost.dart';
 
 class JournalPost extends StatefulWidget {
@@ -30,32 +31,33 @@ class _JournalPostState extends State<JournalPost> {
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
       ),
-      builder: (_) => Wrap(
-        children: [
-          ListTile(
-            leading: const Icon(Icons.edit),
-            title: const Text('Edit Post'),
-            onTap: () async {
-              Navigator.pop(context);
-              final updatedPost = await Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (_) => CreatePost(existingData: widget.data),
-                ),
-              );
-              if (updatedPost != null) widget.onEdit(updatedPost);
-            },
+      builder:
+          (_) => Wrap(
+            children: [
+              ListTile(
+                leading: const Icon(Icons.edit),
+                title: const Text('Edit Post'),
+                onTap: () async {
+                  Navigator.pop(context);
+                  final updatedPost = await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => CreatePost(existingData: widget.data),
+                    ),
+                  );
+                  if (updatedPost != null) widget.onEdit(updatedPost);
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.delete),
+                title: const Text('Delete Post'),
+                onTap: () {
+                  Navigator.pop(context);
+                  widget.onDelete();
+                },
+              ),
+            ],
           ),
-          ListTile(
-            leading: const Icon(Icons.delete),
-            title: const Text('Delete Post'),
-            onTap: () {
-              Navigator.pop(context);
-              widget.onDelete();
-            },
-          ),
-        ],
-      ),
     );
   }
 
@@ -95,9 +97,10 @@ class _JournalPostState extends State<JournalPost> {
                     images[index],
                     fit: BoxFit.cover,
                     width: double.infinity,
-                    errorBuilder: (_, __, ___) => const Center(
-                      child: Icon(Icons.broken_image, size: 80),
-                    ),
+                    errorBuilder:
+                        (_, __, ___) => const Center(
+                          child: Icon(Icons.broken_image, size: 80),
+                        ),
                   );
                 },
               ),
@@ -105,7 +108,10 @@ class _JournalPostState extends State<JournalPost> {
                 top: 12,
                 right: 12,
                 child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 8,
+                    vertical: 4,
+                  ),
                   decoration: BoxDecoration(
                     color: Colors.black54,
                     borderRadius: BorderRadius.circular(16),
@@ -130,9 +136,10 @@ class _JournalPostState extends State<JournalPost> {
                       height: 6,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: currentImage == index
-                            ? Colors.white
-                            : Colors.white60,
+                        color:
+                            currentImage == index
+                                ? Colors.white
+                                : Colors.white60,
                       ),
                     ),
                   ),
@@ -212,4 +219,10 @@ class _JournalPostState extends State<JournalPost> {
       ],
     );
   }
+}
+
+// Run this once to clear journal posts
+Future<void> clearJournalPosts() async {
+  final prefs = await SharedPreferences.getInstance();
+  await prefs.remove('journalPosts');
 }

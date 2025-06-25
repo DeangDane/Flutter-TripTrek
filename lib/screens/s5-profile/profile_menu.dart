@@ -19,7 +19,7 @@ class ProfileMenuScreen extends StatelessWidget {
         children: [
           const ListTile(
             leading: CircleAvatar(
-              backgroundImage: AssetImage('assets/images/mina.jpg'),
+              backgroundImage: AssetImage('assets/images/p2.jpg'),
             ),
             title: Text('Mina_Official'),
           ),

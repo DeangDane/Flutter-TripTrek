@@ -12,8 +12,13 @@ class CustomBottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bottomPadding = MediaQuery.of(context).padding.bottom;
+
     return Container(
-      height: 80,
+      padding: EdgeInsets.only(
+        top: 15,
+        bottom: bottomPadding > 0 ? bottomPadding : 10, // ensure padding on iOS
+      ),
       decoration: BoxDecoration(
         color: Colors.white,
         boxShadow: [
@@ -28,7 +33,11 @@ class CustomBottomNavBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           _buildNavItem(index: 0, icon: Icons.home_outlined, label: 'Home'),
-          _buildNavItem(index: 1, icon: Icons.explore_outlined, label: 'Journal'),
+          _buildNavItem(
+            index: 1,
+            icon: Icons.explore_outlined,
+            label: 'Journal',
+          ),
           _buildNavItem(index: 2, icon: Icons.attach_money, label: 'Budget'),
           _buildNavItem(index: 3, icon: Icons.person_outline, label: 'Profile'),
         ],
@@ -57,7 +66,7 @@ class CustomBottomNavBar extends StatelessWidget {
             Icon(
               icon,
               color: isSelected ? Colors.white : Color(0xFF4ECDC4),
-              size: 20,
+              size: 25,
             ),
             if (isSelected) ...[
               SizedBox(width: 8),
