@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:intl/intl.dart'; //intl: formats date/time for display
 
 class BookingScreen extends StatefulWidget {
   const BookingScreen({super.key});
@@ -9,7 +9,7 @@ class BookingScreen extends StatefulWidget {
 }
 
 class _BookingScreenState extends State<BookingScreen> {
-  final _formKey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>(); //GlobalKey<FormState>(): used to validate and save form fields
 
   String firstName = '';
   String lastName = '';
@@ -129,6 +129,7 @@ class _BookingScreenState extends State<BookingScreen> {
     }
   }
 
+//Custom styling for all input fields (border, label color, padding)
   InputDecoration _inputDecoration(String label) {
     return InputDecoration(
       labelText: label,
@@ -153,6 +154,8 @@ class _BookingScreenState extends State<BookingScreen> {
     );
   }
 
+//Builds a TextFormField with a label and validation
+  //onSaved: callback to save the input value
   Widget _buildInput(String label, void Function(String) onSaved) {
     return TextFormField(
       decoration: _inputDecoration(label),

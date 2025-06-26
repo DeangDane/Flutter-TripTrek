@@ -51,6 +51,8 @@ class _JournalScreenState extends State<JournalScreen> {
   Future<void> _loadPosts() async {
     final prefs = await SharedPreferences.getInstance();
     final stored = prefs.getString('journalPosts');
+    // Check if posts are already stored in SharedPreferences
+    // If not, use the static posts defined above
     if (stored != null) {
       setState(
         () => posts = List<Map<String, dynamic>>.from(json.decode(stored)),
@@ -80,6 +82,8 @@ class _JournalScreenState extends State<JournalScreen> {
     );
   }
 
+///Add or Edit Posts
+  /// Navigates to the CreatePost screen to create a new post or edit an existing one.
   void _navigateToCreatePost({
     Map<String, dynamic>? existingData,
     int? index,
@@ -94,7 +98,7 @@ class _JournalScreenState extends State<JournalScreen> {
     if (result != null && result is Map<String, dynamic>) {
       setState(() {
         if (index != null) {
-          posts[index] = result;
+          posts[index] = result; //edit
         } else {
           posts.insert(0, result); // Add new post at the top
         }

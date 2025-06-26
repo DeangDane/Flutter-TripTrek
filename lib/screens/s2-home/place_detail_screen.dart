@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:triptrek/screens/s2-home/booking.dart';
-// import 'package:triptrek/widgets/feedback_modal.dart'; // ✅ Import your modal
+import 'package:triptrek/widgets/feedback_modal.dart'; // ✅ Import your modal
 
 class PlaceDetailScreen extends StatelessWidget {
   const PlaceDetailScreen({super.key});
@@ -80,9 +80,7 @@ class PlaceDetailScreen extends StatelessWidget {
               borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
             ),
             builder:
-                (context) => const Center(
-                  child: Text('Feedback Modal Placeholder'),
-                ), // TODO: Replace with actual FeedbackModal widget
+                (context) => const FeedbackModal(), // ✅ Replace placeholder
           );
         },
         child: const Icon(Icons.add, color: Colors.green),

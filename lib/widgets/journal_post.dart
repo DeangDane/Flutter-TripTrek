@@ -25,6 +25,7 @@ class _JournalPostState extends State<JournalPost> {
   int currentImage = 0;
   bool isLiked = false;
 
+//Show Bottom Options (Edit/Delete)
   void _showOptions() {
     showModalBottomSheet(
       context: context,
@@ -90,6 +91,7 @@ class _JournalPostState extends State<JournalPost> {
           child: Stack(
             children: [
               PageView.builder(
+                //
                 itemCount: images.length,
                 onPageChanged: (i) => setState(() => currentImage = i),
                 itemBuilder: (context, index) {

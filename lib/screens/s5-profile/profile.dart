@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:triptrek/data/mock_data.dart';
 import 'edit_profile.dart';
 import 'profile_menu.dart';
 import 'create_story_screen.dart';

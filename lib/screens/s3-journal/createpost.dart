@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'dart:io';
+import 'dart:io'; //to work with File (e.g., image files)
 
 class CreatePost extends StatefulWidget {
   final Map<String, dynamic>? existingData;
+  /// If [existingData] is provided, the form will be pre-filled with this data.
+  /// This is useful for editing an existing post.
+  /// If null, the form will be empty for creating a new post.
 
   const CreatePost({super.key, this.existingData});
 
@@ -19,6 +22,7 @@ class _CreatePostState extends State<CreatePost> {
 
   final ImagePicker picker = ImagePicker();
 
+/// Initializes the state of the widget.
   @override
   void initState() {
     super.initState();
@@ -53,6 +57,7 @@ class _CreatePostState extends State<CreatePost> {
     }
   }
 
+  /// Displays a bottom sheet with options to choose an image source.
   void _showImageSourceOptions() {
     showModalBottomSheet(
       context: context,
@@ -109,6 +114,8 @@ class _CreatePostState extends State<CreatePost> {
               : ""),
       'date': DateTime.now().toString().split(' ').first,
     };
+
+///Returns the newPost back to the previous screen using Navigator.pop().
 
     Navigator.pop(context, newPost);
   }
