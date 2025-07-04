@@ -33,17 +33,13 @@ Interactive ChatBot
 ## 📱 Screenshots
 <p float="left">
   <img src="https://github.com/user-attachments/assets/04e8f303-c9c9-4c35-9b06-36f589f701f1" width="200" />
-    <img src="https://github.com/user-attachments/assets/626b7381-e176-4ec2-b253-81a19ac44184" width="200" />
-    <img src="https://github.com/user-attachments/assets/44a3c980-f1a5-4046-b572-3dba9f9d9b3f" width="200" />
-    <img src="https://github.com/user-attachments/assets/626b7381-e176-4ec2-b253-81a19ac44184" width="200" />
-    <img src="https://github.com/user-attachments/assets/1fb77b64-8bed-45ca-b589-1f2c12b55ef6" width="200" />
-    <img src="https://github.com/user-attachments/assets/c0ce5b6f-9cb7-4366-a9fb-06986e77ebb1" width="200" />
-    <img src="https://github.com/user-attachments/assets/95649e82-e155-4c8b-85e5-017debfce851" width="200" />
-    <img src="https://github.com/user-attachments/assets/302516fa-431d-494a-bec1-22830027487c" width="200" />
-    <img src="https://github.com/user-attachments/assets/626b7381-e176-4ec2-b253-81a19ac44184" width="200" />
-
-![Uploading Simulator Screenshot - iPhone 16 Pro Max - 2025-07-04 at 22.05.07.png…]()
-
+  <img src="https://github.com/user-attachments/assets/44a3c980-f1a5-4046-b572-3dba9f9d9b3f" width="200" />
+  <img src="https://github.com/user-attachments/assets/626b7381-e176-4ec2-b253-81a19ac44184" width="200" />
+  <img src="https://github.com/user-attachments/assets/1fb77b64-8bed-45ca-b589-1f2c12b55ef6" width="200" />
+  <img src="https://github.com/user-attachments/assets/c0ce5b6f-9cb7-4366-a9fb-06986e77ebb1" width="200" />
+  <img src="https://github.com/user-attachments/assets/95649e82-e155-4c8b-85e5-017debfce851" width="200" />
+  <img src="https://github.com/user-attachments/assets/302516fa-431d-494a-bec1-22830027487c" width="200" />
+  <img src="https://github.com/user-attachments/assets/626b7381-e176-4ec2-b253-81a19ac44184" width="200" />
 </p>
 ### IV. Conclusion
 Working on TripTrek has been an invaluable experience. It allowed us to apply our technical skills and teamwork to build a real-world solution that contributes to the tourism ecosystem of Cambodia. Despite facing some difficulties, our team managed to complete the key features and deliver a fully functional travel platform.
