@@ -11,23 +11,23 @@ TripTrek’s mission is to become a trusted digital travel assistant that not on
 ## 1.2 Purpose
 TripTrek’s purpose is to bring modern convenience to Cambodia’s tourism sector by combining multiple services into a single website. It allows travelers to discover, plan, and share journeys with confidence and ease.
 II. Implementation
-1. Project Setup
-2. Components Developed
-Admin Dashboard
-Home Page
-User Profile Page
-Explore Page
-Province Feature Page
-Hotel & Restaurant Listings
-Hotel Detail View
-Transportation Page
-Journal Section: Journal Feed Page, Create Journal, Read Full Post
-Budget Recommendation Page
-Notification and Authentication
-Event Calendar
-Weather Widget
-Search Bar
-Interactive ChatBot
+1. Project Setup: flutter
+3. Components Developed
+- Admin Dashboard
+- Home Page
+- User Profile Page
+- Explore Page
+- Province Feature Page
+- Hotel & Restaurant Listings
+- Hotel Detail View
+- Transportation Page
+- Journal Section: Journal Feed Page, Create Journal, Read Full Post
+- Budget Recommendation Page
+- Notification and Authentication
+- Event Calendar
+- Weather Widget
+- Search Bar
+- Interactive ChatBot
 
 ### III. Results
 ## 📱 Screenshots
