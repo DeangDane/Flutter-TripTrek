@@ -39,8 +39,9 @@ Interactive ChatBot
   <img src="https://github.com/user-attachments/assets/c0ce5b6f-9cb7-4366-a9fb-06986e77ebb1" width="200" />
   <img src="https://github.com/user-attachments/assets/95649e82-e155-4c8b-85e5-017debfce851" width="200" />
   <img src="https://github.com/user-attachments/assets/302516fa-431d-494a-bec1-22830027487c" width="200" />
-  <img src="https://github.com/user-attachments/assets/626b7381-e176-4ec2-b253-81a19ac44184" width="200" />
+  <img src="https://github.com/user-attachments/assets/c09c8eb6-2390-411f-a212-e6390222703c" width="200" />
 </p>
+
 ### IV. Conclusion
 Working on TripTrek has been an invaluable experience. It allowed us to apply our technical skills and teamwork to build a real-world solution that contributes to the tourism ecosystem of Cambodia. Despite facing some difficulties, our team managed to complete the key features and deliver a fully functional travel platform.
 This project has enhanced our technical capabilities, communication skills, and understanding of full-stack development. We are proud of the outcome and excited to improve it further beyond the course.
